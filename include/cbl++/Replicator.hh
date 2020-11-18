@@ -17,7 +17,11 @@
 //
 
 #pragma once
+
 #include "CBLReplicator.h"
+
+#include "Document.hh"
+
 #include <functional>
 
 // PLEASE NOTE: This C++ wrapper API is provided as a convenience only.
@@ -43,6 +47,10 @@ namespace cbl {
         void setBasic(const char *username _cbl_nonnull,
                       const char *password _cbl_nonnull)
                                                     {_ref = CBLAuth_NewBasic(username, password);}
+
+        void setSession(const char *sessionId, const char *cookieName) {
+          _ref = CBLAuth_NewSession(sessionId, cookieName);
+        }
         ~Authenticator()                            {CBLAuth_Free(_ref);}
         CBLAuthenticator* ref() const               {return _ref;}
     private:
