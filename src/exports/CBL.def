@@ -287,3 +287,20 @@ FLDeepIterator_Next
 FLDeepIterator_GetPath
 FLDeepIterator_GetPathString
 FLDeepIterator_GetJSONPointer
+
+
+; Dart
+
+CBLDart_PostCObject
+CBLDart_NewNativePort
+CBLDart_CloseNativePort
+
+CBLDart_RegisterPorts
+CBLDart_ExecuteCallback
+CBLDart_DatabaseChangeListener
+CBLDart_DocumentChangeListener
+CBLDart_QueryChangeListener
+CBLDart_ReplicatorChangeListener
+CBLDart_PushReplicationFilter
+CBLDart_PullReplicationFilter
+CBLDart_conflictReplicationResolver

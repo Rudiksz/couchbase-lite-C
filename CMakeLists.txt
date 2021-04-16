@@ -88,6 +88,7 @@ set(
     src/ConflictResolver.cc
     src/Listener.cc
     src/Util.cc
+    src/Dart.cc
     ${PLATFORM_SRC}
 )
 
@@ -141,7 +142,3 @@ endif()
 target_link_libraries(CouchbaseLiteC PRIVATE ${CBL_LIBRARIES_PRIVATE})
 
 set_dylib_properties()
-
-### TESTS:
-
-add_subdirectory(test)
