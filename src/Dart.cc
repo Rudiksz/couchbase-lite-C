@@ -14,6 +14,8 @@ using namespace cbl_internal;
 extern "C" {
 #endif
 
+typedef std::function<void()> WorkFn;
+
 Dart_NewNativePortType Dart_NewNativePort_;
 Dart_PostCObjectType Dart_PostCObject_;
 Dart_CloseNativePortType Dart_CloseNativePort_;
@@ -55,8 +57,6 @@ void CBLDart_RegisterPorts(
     replicatorFilterCallback = replicator_filter_callback;
     replicatorConflictCallback = replicator_conflict_callback;
   }
-
-typedef std::function<void()> Work;
 
 // This will execute the closures we set up in our C handlers. Called by the Dart code.
 void CBLDart_ExecuteCallback(Work *work_ptr) {
@@ -181,7 +181,7 @@ DART_EXPORT const CBLDocument* CBLDart_conflictReplicationResolver(void *id,
 
     // This is a closure that wraps Dart's cblReplicatorFilterCallback to return a
     // value
-    const Work work = [id, documentID, &localDocument, &remoteDocument, &result, callback, &cv,
+    const WorkFn work = [id, documentID, &localDocument, &remoteDocument, &result, callback, &cv,
                       &notified]() {
       result = callback((char *)id, documentID, localDocument, remoteDocument);
       notified = true;
@@ -216,7 +216,7 @@ bool replicationFilter(CBLReplicatorFilterType type, void *id,
 
   // This is a closure that wraps Dart's cblReplicatorFilterCallback to return a
   // value
-  const Work work = [type, id, &document, isDeleted, &result, callback, &cv,
+  const WorkFn work = [type, id, &document, isDeleted, &result, callback, &cv,
                     &notified]() {
     result = callback(type, (char *)id, document, isDeleted);
     notified = true;
@@ -251,7 +251,7 @@ bool CBLDart_PullReplicationFilter(void *context, CBLDocument *document,
 }
 
 // -- Misc
-
+/*
 Dart_Port cblLogPort;
 
 void CBLLogListener(CBLLogDomain domain, CBLLogLevel level,
@@ -279,11 +279,7 @@ void CBLLog_SetCallback_d(uint64_t cbl_log_port) {
 
 void CBL_Log_d(CBLLogDomain domain, CBLLogLevel level, const char *message) {
   CBL_Log_s(domain, level, slice(message));
-}
-
-void Dart_Free(void *pointer){
-  free(pointer);
-}
+}*/
 
 #ifdef __cplusplus
 }

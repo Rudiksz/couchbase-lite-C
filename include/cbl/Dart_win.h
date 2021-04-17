@@ -3,11 +3,8 @@
 #include "CBLBase.h"
 #include "CBLReplicator.h"
 #include "fleece/Fleece.h"
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdocumentation"
-#include "/Users/rudolf.martincsek/flutter/bin/cache/dart-sdk/include/third_party/dart/dart_api.h"
-#include "/Users/rudolf.martincsek/flutter/bin/cache/dart-sdk/include/third_party/dart/dart_native_api.h"
-#pragma clang diagnostic pop
+#include "w:\flutter\bin\cache\dart-sdk\include\third_party\dart\dart_api.h"
+#include "w:\flutter\bin\cache\dart-sdk\include\third_party\dart\dart_native_api.h"
 
 typedef void (*Dart_Print_)(char *);
 
@@ -55,10 +52,6 @@ DART_EXPORT void CBLDart_RegisterPorts(
     CBLDart_ConflictResolverCallback replicator_conflict_callback
     );
 
-typedef void (*Work)();
-
-extern "C" void CBLDart_ExecuteCallback(Work *work_ptr);
-
 DART_EXPORT void CBLDart_DatabaseChangeListener(void *context,
                             const CBLDatabase* db _cbl_nonnull,
                             unsigned numDocs,
@@ -84,6 +77,3 @@ DART_EXPORT const CBLDocument* CBLDart_conflictReplicationResolver(void *id,
                       const char *documentID,
                       const CBLDocument *localDocument,
                       const CBLDocument *remoteDocument);
-
-extern "C" bool replicationFilter(CBLReplicatorFilterType type, void *id,
-                       CBLDocument *document, bool isDeleted);
