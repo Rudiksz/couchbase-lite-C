@@ -183,3 +183,18 @@ _CBLDefaultConflictResolver
 
 _kCBLAuthDefaultCookieName
 _CBLDefaultConflictResolver
+
+
+_CBLDart_PostCObject
+_CBLDart_NewNativePort
+_CBLDart_CloseNativePort
+
+_CBLDart_RegisterPorts
+_CBLDart_ExecuteCallback
+_CBLDart_DatabaseChangeListener
+_CBLDart_DocumentChangeListener
+_CBLDart_QueryChangeListener
+_CBLDart_ReplicatorChangeListener
+_CBLDart_PushReplicationFilter
+_CBLDart_PullReplicationFilter
+_CBLDart_conflictReplicationResolver

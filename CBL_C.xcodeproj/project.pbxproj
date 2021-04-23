@@ -86,6 +86,8 @@
 		27DBD09C246CA60E002FD7A7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271A98AF243FDF55008C032D /* SystemConfiguration.framework */; };
 		27DBD0A9246CA667002FD7A7 /* CBLLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 277B77C6245B44BE00B222D3 /* CBLLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6938073022DE96C200727053 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277CC9B122BC4E2E00B245CB /* Security.framework */; };
+		9545C037262A36B20003527A /* Dart.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9545C02A262A36B20003527A /* Dart.cc */; };
+		9545C03E262A36BD0003527A /* Dart.h in Headers */ = {isa = PBXBuildFile; fileRef = 9545C03D262A36BD0003527A /* Dart.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +389,8 @@
 		27DBCF41246B81EE002FD7A7 /* LibC++Debug.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "LibC++Debug.cc"; sourceTree = "<group>"; };
 		27DBD096246C99AF002FD7A7 /* mergeIntoStaticLib.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = mergeIntoStaticLib.sh; sourceTree = "<group>"; };
 		27DBD097246C9DE7002FD7A7 /* CBLDatabase+ObjC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "CBLDatabase+ObjC.mm"; sourceTree = "<group>"; };
+		9545C02A262A36B20003527A /* Dart.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dart.cc; sourceTree = "<group>"; };
+		9545C03D262A36BD0003527A /* Dart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dart.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,17 +481,18 @@
 		271C2A2B21CAC93B0045856E /* cbl */ = {
 			isa = PBXGroup;
 			children = (
-				27B61DA321D6E40D0027CCDB /* CouchbaseLite.h */,
-				271A989C243BFCDA008C032D /* CBLCertificate.h */,
+				271C2A7021CAD6440045856E /* CBL_Compat.h */,
 				271C2A2D21CAC98F0045856E /* CBLBase.h */,
 				275BC4CC22012D8700DBE7D2 /* CBLBlob.h */,
+				271A989C243BFCDA008C032D /* CBLCertificate.h */,
 				271C2A2F21CAC98F0045856E /* CBLDatabase.h */,
 				271C2A2E21CAC98F0045856E /* CBLDocument.h */,
 				277B77C6245B44BE00B222D3 /* CBLLog.h */,
 				271C2A3021CAC98F0045856E /* CBLQuery.h */,
 				271C2A2C21CAC98F0045856E /* CBLReplicator.h */,
 				271A988E243BF278008C032D /* CBLURLEndpointListener.h */,
-				271C2A7021CAD6440045856E /* CBL_Compat.h */,
+				27B61DA321D6E40D0027CCDB /* CouchbaseLite.h */,
+				9545C03D262A36BD0003527A /* Dart.h */,
 			);
 			path = cbl;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 		271C2A3621CAC9A50045856E /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9545C02A262A36B20003527A /* Dart.cc */,
 				271C2A6E21CAD5B30045856E /* CBLBase.cc */,
 				275BC4DD2201323700DBE7D2 /* CBLBlob.cc */,
 				275BC4F52209080E00DBE7D2 /* CBLBlob_Internal.hh */,
@@ -666,6 +672,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9545C03E262A36BD0003527A /* Dart.h in Headers */,
 				277FEE7821ED62AA00B60E3C /* CBLReplicatorConfig.hh in Headers */,
 				27DBCF2F246B4352002FD7A7 /* CBLQuery_Internal.hh in Headers */,
 				27D11BEF2351043B00C58A70 /* ConflictResolver.hh in Headers */,
@@ -1120,6 +1127,7 @@
 				271C2A7821CC750E0045856E /* CBLDocument.cc in Sources */,
 				275BC4DE2201323700DBE7D2 /* CBLBlob.cc in Sources */,
 				27B61D5621D5ABA60027CCDB /* CBLQuery.cc in Sources */,
+				9545C037262A36B20003527A /* Dart.cc in Sources */,
 				277B77D5245B44E900B222D3 /* CBLLog.cc in Sources */,
 				271A989E243BFDBF008C032D /* CBLURLEndpointListener.cc in Sources */,
 				277FEE7521ED3C4900B60E3C /* CBLReplicator.cc in Sources */,
@@ -1252,6 +1260,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27B61D8921D6BAB10027CCDB /* Project_Debug.xcconfig */;
 			buildSettings = {
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 			};
 			name = Debug;
 		};
@@ -1259,6 +1269,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27B61D8721D6BAB10027CCDB /* Project_Release.xcconfig */;
 			buildSettings = {
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 			};
 			name = Release;
 		};
@@ -1676,6 +1688,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27D055892358FA40009BB0A1 /* Project_Debug_EE.xcconfig */;
 			buildSettings = {
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 			};
 			name = Debug_EE;
 		};
@@ -1900,6 +1914,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27D0558A2358FA67009BB0A1 /* Project_Release_EE.xcconfig */;
 			buildSettings = {
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 			};
 			name = Release_EE;
 		};

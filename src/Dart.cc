@@ -14,7 +14,6 @@ using namespace cbl_internal;
 extern "C" {
 #endif
 
-typedef std::function<void()> WorkFn;
 
 Dart_NewNativePortType Dart_NewNativePort_;
 Dart_PostCObjectType Dart_PostCObject_;
@@ -59,6 +58,8 @@ void CBLDart_RegisterPorts(
   }
 
 // This will execute the closures we set up in our C handlers. Called by the Dart code.
+
+typedef std::function<void()> Work;
 void CBLDart_ExecuteCallback(Work *work_ptr) {
   const Work work = *work_ptr;
   work();
@@ -181,7 +182,7 @@ DART_EXPORT const CBLDocument* CBLDart_conflictReplicationResolver(void *id,
 
     // This is a closure that wraps Dart's cblReplicatorFilterCallback to return a
     // value
-    const WorkFn work = [id, documentID, &localDocument, &remoteDocument, &result, callback, &cv,
+    const Work work = [id, documentID, &localDocument, &remoteDocument, &result, callback, &cv,
                       &notified]() {
       result = callback((char *)id, documentID, localDocument, remoteDocument);
       notified = true;
@@ -216,7 +217,7 @@ bool replicationFilter(CBLReplicatorFilterType type, void *id,
 
   // This is a closure that wraps Dart's cblReplicatorFilterCallback to return a
   // value
-  const WorkFn work = [type, id, &document, isDeleted, &result, callback, &cv,
+  const Work work = [type, id, &document, isDeleted, &result, callback, &cv,
                     &notified]() {
     result = callback(type, (char *)id, document, isDeleted);
     notified = true;

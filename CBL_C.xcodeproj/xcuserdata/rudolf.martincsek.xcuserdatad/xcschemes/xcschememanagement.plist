@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>CBL_C Dylib.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
+		<key>CBL_C Framework.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
+		<key>CBL_C.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>CBL_Tests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>CouchbaseLiteTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>Doxygen.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
+		</dict>
+		<key>Python.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>30</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

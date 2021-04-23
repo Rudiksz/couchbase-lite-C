@@ -55,10 +55,6 @@ DART_EXPORT void CBLDart_RegisterPorts(
     CBLDart_ConflictResolverCallback replicator_conflict_callback
     );
 
-typedef void (*Work)();
-
-extern "C" void CBLDart_ExecuteCallback(Work *work_ptr);
-
 DART_EXPORT void CBLDart_DatabaseChangeListener(void *context,
                             const CBLDatabase* db _cbl_nonnull,
                             unsigned numDocs,
