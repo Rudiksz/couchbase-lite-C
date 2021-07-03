@@ -9,7 +9,7 @@ RESULT="$DERIVED_FILE_DIR/CBL.exp"
 
 echo "Generating $RESULT"
 
-cat CBL_Exports.txt Fleece_Exports.txt Fleece_Apple_Exports.txt >"$TEMP_FILE"
+cat CBL_Exports.txt Fleece_Exports.txt Dart_Exports.txt Fleece_Apple_Exports.txt >"$TEMP_FILE"
 
 if [ "$CONFIGURATION" == "Debug_EE" ] || [ "$CONFIGURATION" == "Release_EE" ]; then
     cat CBL_EE_Exports.txt >>"$TEMP_FILE"

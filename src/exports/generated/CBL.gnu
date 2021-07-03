@@ -290,6 +290,10 @@ CBL_C {
 		FLDeepIterator_GetPath;
 		FLDeepIterator_GetPathString;
 		FLDeepIterator_GetJSONPointer;
+		CBLDart_PostCObject;
+		CBLDart_NewNativePort;
+		CBLDart_CloseNativePort;
+		CBLDart_RegisterPorts;
 	local:
 		*;
 };

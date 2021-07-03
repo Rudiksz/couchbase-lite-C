@@ -293,3 +293,7 @@ _FLDeepIterator_Next
 _FLDeepIterator_GetPath
 _FLDeepIterator_GetPathString
 _FLDeepIterator_GetJSONPointer
+_CBLDart_PostCObject
+_CBLDart_NewNativePort
+_CBLDart_CloseNativePort
+_CBLDart_RegisterPorts

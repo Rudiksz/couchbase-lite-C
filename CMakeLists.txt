@@ -105,6 +105,7 @@ set(
     src/ConflictResolver.cc
     src/Internal.cc
     src/Listener.cc
+    src/Dart.cc
     ${PLATFORM_SRC}
 )
 
@@ -137,6 +138,7 @@ add_library(CouchbaseLiteC SHARED empty.cpp)
 target_include_directories(
     CouchbaseLiteC PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/cbl>
     $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/generated_headers/public/cbl/>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/vendor/couchbase-lite-core/vendor/fleece/API/>
     $<INSTALL_INTERFACE:include/>
